@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Serves Beta</title>
+	<link rel="stylesheet" type="text/css" href="/css/app.css">
+</head>
+<body>
+
+		<h1>HOME PAGE</h1>
+
+		<form action="/ingredient" method="post">
+			<input type="text" name="ingredient" placeholder="ingredient">
+			<select name="measurement">
+					<option value="measure" selected disabled>measure</option>
+					<option value="tsp">tsp</option>
+					<option value="tbsp">tbsp</option>
+					<option value="cups">cups</option>
+			</select>
+			<select name="qty">
+					<option value="qty" selected disabled>qty</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+			</select>
+			<button>+</button>
+		</form>
+		
+		<% ingredients.forEach((ingredient) => { %>
+			<!-- <% var ingredientId = "ingredientId" + ingredient._id %> -->
+			<li id="<%= ingredient._id %>" class="ingredient">
+				<a href="/ingredient/<%= ingredient._id %>">
+					<p class='inlineItem' id="ingredient<%= ingredient._id %>"><%= ingredient.ingredient %></p> 
+					- <p class='inlineItem' id='measurement<%= ingredient._id %>'><%= ingredient.measurement %></p> 
+					- <p class='inlineItem' id='qty<%= ingredient._id %>'><%= ingredient.qty %></p>
+				</a>
+				<form style="display: inline" action="/ingredient/<%= ingredient._id %>?_method=DELETE" method="POST">
+					<button style="background: red">-</button>
+				</form>
+				<form style="display: inline">
+					<button class="edit-ingredient">edit</button>
+				</form>
+			</li>
+		<% }); %>
+
+<script
+src="https://code.jquery.com/jquery-3.3.1.min.js"
+integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+crossorigin="anonymous">
+</script>
+<script src="/js/jquery.js"></script>
+</body>
+</html>
+

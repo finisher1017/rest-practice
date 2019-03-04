@@ -1,0 +1,10 @@
+<h1>JOBS PAGE</h1>
+
+
+<li>Ingredient: <%= ingredient.ingredient %></li>
+<li>Measurment: <%= ingredient.measurement %></li>
+<li>Quantity: <%= ingredient.qty %></li>
+<a href="/ingredient/<%= ingredient._id %>/edit">edit</a>
+<form action="/ingredient/<%= ingredient._id %>?_method=DELETE" method="POST">
+	<button>Delete</button>
+</form>

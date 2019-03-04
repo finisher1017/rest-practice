@@ -1,0 +1,18 @@
+<h1>EDIT JOB PAGE</h1>
+
+<form action="/ingredient/<%= ingredient._id %>?_method=PUT" method="POST">
+	<input type="text" name="ingredient[ingredient]" value="<%= ingredient.ingredient %>">
+	<select name="ingredient[measurement]">
+			<option value="measure" selected disabled><%= ingredient.measurement %></option>
+			<option value="tsp">tsp</option>
+			<option value="tbsp">tbsp</option>
+			<option value="cups">cups</option>
+	</select>
+	<select name="ingredient[qty]">
+			<option value="qty" selected disabled><%= ingredient.qty %></option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+	</select>
+	<button>save</button>
+</form>
